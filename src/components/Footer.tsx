@@ -1,4 +1,5 @@
 import React from 'react';
+import logoUrl from '../assets/images/scan_qr_logo_1790896496732.jpg';
 import { ArrowUp, ShieldCheck, Mail, Printer, Globe } from 'lucide-react';
 import { PolicyTranslation, LanguageCode } from '../types/privacy';
 import { SUPPORTED_LANGUAGES } from '../data/translations';
@@ -22,9 +23,15 @@ export const Footer: React.FC<FooterProps> = ({ t, currentLang, onSelectLang }) 
             <div className="flex items-center gap-2.5 text-white font-bold text-base">
               <div className="w-8 h-8 rounded-lg overflow-hidden bg-black flex items-center justify-center border border-slate-700 shrink-0">
                 <img
-                  src="/src/assets/images/scan_qr_logo_1790896496732.jpg"
+                  src={logoUrl || '/logo.jpg'}
                   alt="Scan Qr Pro Logo"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== window.location.origin + '/logo.jpg') {
+                      target.src = '/logo.jpg';
+                    }
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>

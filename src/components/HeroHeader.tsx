@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import logoUrl from '../assets/images/scan_qr_logo_1790896496732.jpg';
+import badgeUrl from '../assets/images/scan_qr_pro_badge_1790896508634.jpg';
 import { 
   ShieldCheck, 
   Copy, 
@@ -70,9 +72,15 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ t, onOpenContact }) => {
                 title="Klik untuk memperbesar logo resmi"
               >
                 <img
-                  src="/src/assets/images/scan_qr_logo_1790896496732.jpg"
+                  src={logoUrl || '/logo.jpg'}
                   alt="Scan Qr Pro Official Icon"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== window.location.origin + '/logo.jpg') {
+                      target.src = '/logo.jpg';
+                    }
+                  }}
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -128,9 +136,15 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ t, onOpenContact }) => {
 
               <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden bg-black border border-slate-800 shadow-2xl shadow-orange-500/20 mb-4">
                 <img
-                  src="/src/assets/images/scan_qr_pro_badge_1790896508634.jpg"
+                  src={badgeUrl || '/badge.jpg'}
                   alt="Scan Qr Pro Official Emblem"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== window.location.origin + '/badge.jpg') {
+                      target.src = '/badge.jpg';
+                    }
+                  }}
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logoUrl from '../assets/images/scan_qr_logo_1790896496732.jpg';
 import { 
   ShieldCheck, 
   Globe, 
@@ -49,9 +50,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md shadow-orange-500/10 border border-slate-800 group-hover:scale-105 transition-transform shrink-0">
                 <img
-                  src="/src/assets/images/scan_qr_logo_1790896496732.jpg"
+                  src={logoUrl || '/logo.jpg'}
                   alt="Scan Qr Pro Logo"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== window.location.origin + '/logo.jpg') {
+                      target.src = '/logo.jpg';
+                    }
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>
