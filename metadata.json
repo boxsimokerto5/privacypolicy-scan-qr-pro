@@ -1,0 +1,6 @@
+{
+  "name": "Scan Qr Pro - Privacy Policy Portal",
+  "description": "Kebijakan Privasi resmi untuk aplikasi mobile Scan Qr Pro oleh Geccko Creator dengan dukungan multi-bahasa dan kepatuhan Google Play Store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
